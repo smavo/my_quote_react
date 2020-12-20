@@ -1,14 +1,13 @@
 import React from 'react';
+import Header from './Components/Header';
 // import logo from './logo.svg';
-import './App.css';
+//import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h2>Cotizador</h2>
-      </header>
-    </div>
+    <>
+      <Header titulo='Cotizador UIT - 2000 al 2020'/>
+    </>
   );
 }
 
