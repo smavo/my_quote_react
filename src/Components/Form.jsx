@@ -67,7 +67,7 @@ const Error = styled.div`
     border-radius: 10px;
 `;
 
-function Form() {
+function Form({guardarResumen,guardarCargando}) {
     const [ datos, guardarDatos ] = useState({
         marca: '',
         year: '',
@@ -104,24 +104,37 @@ function Form() {
 
         // obtener la diferencia de años
         const diferencia = obtenerDiferenciaYear(year);
-        //console.log(diferencia);
+        console.log(diferencia);
 
         // por cada año hay que restar el 3%
         resultado -= (( diferencia * 3 ) * resultado) / 100;
-        //console.log(resultado);
+        console.log(resultado);
 
         // Americano 15
         // Asiatico 5%
         // Europeo 30%
         resultado = calcularMarca(marca) * resultado;
-        //console.log(resultado);
+        console.log(resultado);
 
         // Basíco aumenta 20%
         // Completo 50%
         const incrementoPlan = obtenerPlan(plan);
         resultado = parseFloat( incrementoPlan * resultado ).toFixed(2);
-        //console.log(resultado);
+        console.log(resultado);
 
+        guardarCargando(true);
+
+        setTimeout(() => {
+
+            // Elimina el spinner
+            guardarCargando(false);
+
+            // pasa la información al componente principal
+            guardarResumen({
+                cotizacion: Number(resultado),
+                datos
+            });
+        }, 2000);
     }
 
 

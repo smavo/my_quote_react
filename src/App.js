@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './Components/Header';
 import Form from './Components/Form';
+import Resumen from './Components/Resumen';
 
 import styled from '@emotion/styled';
 
@@ -14,11 +15,34 @@ const ContenedorFormulario = styled.div`
 `
 
 function App() {
+
+  const [resumen, guardarResumen] = useState({
+    cotizacion: 0,
+    datos: {
+      marca: '',
+      year: '',
+      plan: ''
+    }
+  });
+
+  const [cargando, guardarCargando] = useState(false);
+
+  // extraer datos
+  const { cotizacion, datos } = resumen;
+
   return (
     <Contenedor>
-      <Header titulo='Cotizador UIT'/>
+      <Header titulo='Cotizador UIT' />
       <ContenedorFormulario>
-        <Form />
+        <Form
+          guardarResumen={guardarResumen}
+          guardarCargando={guardarCargando}
+        />
+
+        <Resumen
+          datos={datos}
+        />
+
       </ContenedorFormulario>
     </Contenedor>
   );
