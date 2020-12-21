@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from '@emotion/styled';
 import { obtenerDiferenciaYear, calcularMarca, obtenerPlan } from '../helper';
+import PropTypes from 'prop-types';
 
 const Seccion = styled.div`
     display: grid;
@@ -203,6 +204,11 @@ function Form({guardarResumen,guardarCargando}) {
             <Boton type="submit">Cotizar</Boton>
         </form>
     )
+}
+
+Form.propTypes = {
+    guardarResumen: PropTypes.func.isRequired,
+    guardarCargando: PropTypes.func.isRequired
 }
 
 export default Form;

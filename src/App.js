@@ -41,11 +41,11 @@ function App() {
           guardarCargando={guardarCargando}
         />
 
-        {cargando ? <Spinner /> : null}
-
         <Resumen
           datos={datos}
         />
+
+        {cargando ? <Spinner /> : null}
 
         {!cargando ?
           <Resultado
