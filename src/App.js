@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Header from './Components/Header';
 import Form from './Components/Form';
 import Resumen from './Components/Resumen';
+import Resultado from './Components/Resultado';
+import Spinner from './Components/Spinner';
 
 import styled from '@emotion/styled';
 
@@ -39,9 +41,17 @@ function App() {
           guardarCargando={guardarCargando}
         />
 
+        {cargando ? <Spinner /> : null}
+
         <Resumen
           datos={datos}
         />
+
+        {!cargando ?
+          <Resultado
+            cotizacion={cotizacion}
+          /> : null
+        }
 
       </ContenedorFormulario>
     </Contenedor>
