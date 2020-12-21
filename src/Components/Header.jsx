@@ -6,11 +6,12 @@ const ContenedorHeader = styled.header`
     background-color: #242c34;
     padding: 10px;
     font-weight: bold;
+    margin-top:30px;
 `;
 
 const TextoHeader = styled.h2`
     font-family: 'Andika New Basic', sans-serif;
-    font-size: 34px;
+    font-size: 32px;
     margin:0;
     text-align: center;
     color: white;
@@ -32,4 +33,4 @@ Header.propTypes = {
     titulo: PropTypes.string.isRequired
 }
 
-export default Header
+export default Header;

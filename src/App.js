@@ -1,13 +1,26 @@
 import React from 'react';
 import Header from './Components/Header';
-// import logo from './logo.svg';
-//import './App.css';
+import Form from './Components/Form';
+
+import styled from '@emotion/styled';
+
+const Contenedor = styled.div`
+  max-width: 800px;
+  margin: 0 auto;
+`;
+const ContenedorFormulario = styled.div`
+  background-color: #FFFFFF;
+  padding: 20px;
+`
 
 function App() {
   return (
-    <>
-      <Header titulo='Cotizador UIT - 2000 al 2020'/>
-    </>
+    <Contenedor>
+      <Header titulo='Cotizador UIT'/>
+      <ContenedorFormulario>
+        <Form />
+      </ContenedorFormulario>
+    </Contenedor>
   );
 }
 
